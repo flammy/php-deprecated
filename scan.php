@@ -55,9 +55,9 @@ function checkdir($dir_name,$deprecated_functions,$check_version,$count = array(
          			}else{
          				$count[$function_name] = 1;
          			}
-         			if (version_compare($depend->removed, $check_version,'<=')) {
+         			if (isset($depend->removed) && version_compare($depend->removed, $check_version,'<=')) {
          				echo "removed in PHP ".$depend->removed.": ".$function_name." \t\tin ".$dir_name . DIRECTORY_SEPARATOR . $value."\n" ;
-         			}elseif (version_compare($depend->deprecated, $check_version,'<=')) {
+         			}elseif (isset($depend->deprecated) && version_compare($depend->deprecated, $check_version,'<=')) {
          				echo "deprecated in PHP ".$depend->deprecated.": ".$function_name." \t\tin ".$dir_name . DIRECTORY_SEPARATOR . $value."\n" ;
          			}
          		}
