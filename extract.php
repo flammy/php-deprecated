@@ -20,7 +20,7 @@ if ($handle = opendir($dir_name)) {
         $file_content = "";
         $deprecated = array();
         $removed = array();
-        if (!is_dir($entry) && (preg_match('/function.*php$/',$entry) !== false)) {
+        if (!is_dir($dir_name.$entry) && (preg_match('/function.*php$/',$entry) !== false)) {
 			$file_content = file_get_contents($dir_name.$entry);
             $file_content = str_replace("\n", "", $file_content);
             $file_content = str_replace("\r", "", $file_content);
